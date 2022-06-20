@@ -1,0 +1,40 @@
+﻿@model Notebook.Views.MainTable.IndexModel
+@{
+    Model.OnGet();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Models/Contact.cs" rel="stylesheet" />
+    <title>Notebook</title>
+</head>
+<body>
+    <table cellspacing="0" border="1" cellpadding="3">
+        <caption>Список контактов</caption>
+
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+        </tr>
+
+        @for (int i = 0; i < Model.Contacts.Count; i++)
+        {
+            <tr>
+                <td>
+                    <a href="MainTable/Contact?Id=@Model.Contacts[i].Id" target="_blank">@Model.Contacts[i].Id</a>
+                </td>
+                <td>@(Model.Contacts[i].Name)</td>
+                <td>@(Model.Contacts[i].Surname)</td>
+                <td>@(Model.Contacts[i].Patronymic)</td>
+            </tr>
+        }
+    </table>
+
+
+</body>
+</html>
